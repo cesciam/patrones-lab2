@@ -2,12 +2,15 @@ package com.cenfochat.chat.Entidades;
 
 import com.cenfochat.chat.Interfaces.IMediador;
 import com.cenfochat.chat.Interfaces.IUsuarioCenfo;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+@JsonDeserialize
 public class Usuario implements IUsuarioCenfo {
     protected int id;
     protected String nombre;
 
-
+    public Usuario() {
+    }
 
     public Usuario(int id, String nombre) {
         this.id = id;

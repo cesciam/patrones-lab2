@@ -38,4 +38,5 @@ public class GestorMensajes {
     public ArrayList<IUsuarioCenfo> obtenerUsuariosActivos(){
         return  this.mediador.obtenerUsuariosActivos();
     }
+
 }
