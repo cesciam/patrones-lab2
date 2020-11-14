@@ -25,7 +25,7 @@ public class Mediador implements IMediador {
 
     @Override
     public ArrayList<Mensaje> obtenerMensajes() {
-        return this.chat.getMensajes();
+        return this.chat.getMensajesTodos();
     }
 
     @Override
@@ -44,4 +44,19 @@ public class Mediador implements IMediador {
     }
 
 
+    public ChatRoom getChat() {
+        return chat;
+    }
+
+    public void setChat(ChatRoom chat) {
+        this.chat = chat;
+    }
+
+    public ArrayList<IUsuarioCenfo> getUsuariosActivos() {
+        return usuariosActivos;
+    }
+
+    public void setUsuariosActivos(ArrayList<IUsuarioCenfo> usuariosActivos) {
+        this.usuariosActivos = usuariosActivos;
+    }
 }

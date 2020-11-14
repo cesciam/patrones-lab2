@@ -15,22 +15,36 @@ public class ChatRoom {
         mensajes.add(mensaje);
     }
 
-    public ArrayList<Mensaje> getMensajes() {
-        return mensajes;
+    public ArrayList<Mensaje> getMensajesTodos() {
+        ArrayList<Mensaje> mensajeTodos;
+        if(mensajes.size()>0){
+            mensajeTodos = new ArrayList<>();
+            for (Mensaje msjUsr: mensajes) {
+                if(msjUsr.getPermiso() == 2){
+                    mensajeTodos.add(msjUsr);
+                }
+            }
+
+            return mensajeTodos;
+        }
+        return  null;
     }
 
     public ArrayList<Mensaje> mensajePorUsuario(int id){
-        ArrayList<Mensaje> mensajesXUsu = new ArrayList<>();
-        for (Mensaje mensaje: mensajes) {
-            if(mensaje.getId_usuario() == id ){
-                mensajesXUsu.add(mensaje);
+        ArrayList<Mensaje>  mensajesUsr;
+        if(mensajes.size()>0){
+            mensajesUsr = new ArrayList<>();
+            for (Mensaje msjUsr: mensajes) {
+                if(msjUsr.getReceptor()!= null){
+                    if(msjUsr.getReceptor().getId() == id){
+                        mensajesUsr.add(msjUsr);
+                    }
+                }
             }
 
+            return mensajesUsr;
         }
 
-        if(mensajes.size() > 0){
-            return mensajesXUsu;
-        }
-        return null;
+        return  null;
     }
 }

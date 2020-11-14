@@ -1,2 +1,4 @@
-package com.cenfochat.chat.Interfaces;public class IUsuarioCenfo {
+package com.cenfochat.chat.Interfaces;
+
+public interface IUsuarioCenfo {
 }
