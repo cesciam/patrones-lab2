@@ -39,6 +39,8 @@ public class ChatRoom {
                     if(msjUsr.getReceptor().getId() == id){
                         mensajesUsr.add(msjUsr);
                     }
+                }else{
+                    mensajesUsr.add(msjUsr);
                 }
             }
 

@@ -14,10 +14,8 @@ export class UsuarioService {
   }
 
   getUsuariosActivos(): Observable<Usuario[]>{
-    return this.http.get<Usuario[]>(this.baseURL + "usuario");
+    return  this.http.get<Usuario[]>(this.baseURL + "usuario");
   }
 
-  postUsuario(usuario: Usuario): Observable<any>{
-    return this.http.post<any>(this.baseURL + "usuario", usuario);
-  }
+
 }

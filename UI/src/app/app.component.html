@@ -2,15 +2,15 @@
 <div class="row">
   <div class="col-sm">
     <h2 class="text-center">Chat de profesor</h2>
-    <app-chat></app-chat>
+    <app-chat [id] = "1"></app-chat>
   </div>
   <div class="col-sm">
     <h2 class="text-center">Chat de Alumno 1</h2>
-    <app-chat></app-chat>
+    <app-chat [id] = "2"></app-chat>
   </div>
   <div class="col-sm">
     <h2 class="text-center">Chat de Alumno 2</h2>
-    <app-chat></app-chat>
+    <app-chat [id] = "3"></app-chat>
   </div>
 </div>
 
@@ -21,9 +21,8 @@
         <label for="" class=" text-center"> Quien escribe?</label>
       </div>
       <div class="col-5">
-        <select class="form-control">
-          <option disabled>Select Website</option>
-          <option>Choose Website</option>
+        <select [(ngModel)]="quien"  class="form-control">
+          <option  *ngFor="let usu of usuarios" [ngValue]="usu">{{usu.nombre}}</option>
       </select>
       </div>
     </div>
@@ -34,12 +33,12 @@
   <div class="col-sm">
     <div class="row">
       <div class="col-2">
-        <label for="" class=" text-center"> Quien escribe?</label>
+        <label for="" class=" text-center"> Para quien?</label>
       </div>
       <div class="col-5">
-        <select class="form-control" (click)="getUsuarios()">
-          <option disabled>Select Website</option>
-          <option>Choose Website</option>
+        <select [(ngModel)]="para" class="form-control">
+          <option [ngValue]="-1"> Todos</option>
+          <option *ngFor="let usu of usuarios" [ngValue]="usu">{{usu.nombre}}</option>
       </select>
       </div>
     </div>
@@ -49,10 +48,13 @@
 
 <div class="container my-auto">
   <div class="row">
-    <textarea name="" id="" cols="100" rows="5"></textarea>
+    <textarea [(ngModel)]="mensaje"  name="" id="" cols="100" rows="5"></textarea>
   </div>
   <div class="col">
-    <button class="btn btn-primary">Enviar mensaje</button>
+    <button class="btn btn-primary"(click)="enviarMensaje()" >Enviar mensaje</button>
   </div>
 </div>
 </div>
+
+
+

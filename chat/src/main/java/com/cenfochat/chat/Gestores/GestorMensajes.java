@@ -39,4 +39,7 @@ public class GestorMensajes {
         return  this.mediador.obtenerUsuariosActivos();
     }
 
+    public ArrayList<Mensaje> obtenerMensajePorUsuario(int id){
+        return  this.mediador.obtenerMensajePorUsuario(id);
+    }
 }

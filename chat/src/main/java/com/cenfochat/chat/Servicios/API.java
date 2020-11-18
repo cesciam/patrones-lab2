@@ -28,12 +28,25 @@ public class API {
 
     @GetMapping("/cenfochat/usuario")
     ArrayList<IUsuarioCenfo> obtenerUsuarios(){
-        return this.gestor.obtenerUsuariosActivos();
+        if(this.gestor.obtenerUsuariosActivos().size() == 0){
+            Usuario profesor = new Usuario(1, "Profesor");
+            Usuario alumno1 = new Usuario(2, "Alumno1");
+            Usuario alumno2 = new Usuario(3, "Alumno2");
+            this.gestor.addUsario(profesor);
+            this.gestor.addUsario(alumno1);
+            this.gestor.addUsario(alumno2);
+        }
+
+        return  this.gestor.obtenerUsuariosActivos();
     }
 
     @PostMapping("/cenfochat/usuario")
-
     void nuevoUsuario(@RequestBody Usuario usuarioCenfo){
         this.gestor.addUsario(usuarioCenfo);
+    }
+
+    @GetMapping("/cenfochat/mensaje/{id}")
+    public ArrayList<Mensaje> obtenerMensajePorUsuario(@PathVariable int id){
+        return this.gestor.obtenerMensajePorUsuario(id);
     }
 }
